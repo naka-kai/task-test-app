@@ -12,7 +12,7 @@ function Example() {
 
                         {/* <div className="card-body">I'm an example component!</div> */}
                         <div className='card-body'>pages下に移動成功</div>
-                        <Button color='secondary' variant='contained'>Homeに遷移ボタン</Button>
+                        <Button color='secondary' variant='contained' href={`/`}>Homeに遷移ボタン</Button>
                     </div>
                 </div>
             </div>
