@@ -27,6 +27,37 @@ const useStyles = makeStyles((theme) => createStyles({
 // ヘッダーのコンテンツ用の配列定義
 const headerList = ['名前', 'タスク内容', '編集', '完了'];
 
+let rows = [
+    {
+        name: "太郎",
+        content: "筋トレ",
+        editBtn: (
+            <Button color="secondary" variant="contained">
+                編集
+            </Button>
+        ),
+        deleteBtn: (
+            <Button color="primary" variant="contained">
+                完了
+            </Button>
+        ),
+    },
+    {
+        name: "花子",
+        content: "読書",
+        editBtn: (
+            <Button color="secondary" variant="contained">
+                編集
+            </Button>
+        ),
+        deleteBtn: (
+            <Button color="primary" variant="contained">
+                完了
+            </Button>
+        ),
+    },
+];
+
 function Home() {
     // 定義したスタイルを利用するための設定
     const classes = useStyles();
@@ -51,18 +82,17 @@ function Home() {
                                 </TableHead>
                                 {/* ボディ部分 */}
                                 <TableBody>
-                                    <TableRow>
-                                        <TableCell align="center">太郎</TableCell>
-                                        <TableCell align="center">筋トレ</TableCell>
-                                        <TableCell align="center"><Button color="secondary" variant="contained">編集</Button></TableCell>
-                                        <TableCell align="center"><Button color="primary" variant="contained">完了</Button></TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell align="center">花子</TableCell>
-                                        <TableCell align="center">読書</TableCell>
-                                        <TableCell align="center"><Button color="secondary" variant="contained">編集</Button></TableCell>
-                                        <TableCell align="center"><Button color="primary" variant="contained">完了</Button></TableCell>
-                                    </TableRow>
+                                    {rows.map((row, index) => (
+                                        <TableRow key={index}>
+                                            {Object.keys(row).map(function (key, i) {
+                                                return (
+                                                    <TableCell align="center" key={i}>
+                                                        {row[key]}
+                                                    </TableCell>
+                                                );
+                                            })}
+                                        </TableRow>
+                                    ))}
                                 </TableBody>
                                 </Table>
                             </TableContainer>
